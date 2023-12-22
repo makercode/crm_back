@@ -1,0 +1,32 @@
+{
+	"compilerOptions": {
+		"target": "es2020",
+		"module": "commonjs",
+		"outDir": "./build",
+		"rootDir": "./",
+		"strict": true,
+		"noImplicitAny":true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"moduleResolution": "node",
+		"baseUrl": "./src",
+		"paths": {
+			"@controllers/*": ["controllers/*"],
+			"@constants/*": ["shared/constants/*"],
+			"@utils/*": ["shared/utils/*"],
+			"@database/*": ["database/*"],
+			"types/*": ["types/*"],
+			"@enums/*": ["types/enums"],
+			"@middlewares/*": ["middlewares/*"],
+			"@cli/*": ["../cli/*"],
+			"@schemas/*": ["schemas/*"],
+			"@routes/*": ["routes/*"]
+		},
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true
+	},
+	"include": ["./src/**/*"],
+	"exclude": ["node_modules"]
+}
+
