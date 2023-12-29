@@ -1,0 +1,1175 @@
+{
+	"info": {
+		"_postman_id": "34fb30a2-f216-4297-8bd6-f98602db3091",
+		"name": "CRM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1628257"
+	},
+	"item": [
+		{
+			"name": "Plans",
+			"item": [
+				{
+					"name": "Get ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/plans",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"plans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"PREMIUM\",\n    \"max_users\": 5,\n    \"description\": \"Elige todas las categorias que necesites on demand\",\n    \"detail\": [\n        \"Un solo canal\",\n        \"500 reportes\",\n        \"Hasta 3 workflows\",\n        \"Integración con Star Soft\",\n        \"Dashboard Estándar\"\n    ],\n    \"price\": {\n        \"amount\": 100,\n        \"currency\": {\n            \"name\": \"PEN\",\n            \"symbol\": \"S/\"\n        }\n    } \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/plans",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"plans"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "GET ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE MAIN USER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ismaelalexandermc@gmail.com\",\n    \"name\": \"Ismael Malca\",\n    \"password\": \"12345678\",\n    \"permissions\": [],\n    \"phone\": \"+51941733102\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x_tenant",
+								"value": "abatar_com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ismael2@abatar.com\",\n    \"name\": \"Ismael Malca\",\n    \"password\": \"12345678\",\n    \"permissions\": [],\n    \"phone\": \"+51941733100\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"account"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ismaelalexandermc@gmail.com\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PROCESS",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x_tenant",
+								"value": "abatar_com",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Flujo de venta\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/process",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"process"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x_tenant",
+								"value": "abatar_com",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Flujo de compra\",\n    \"id\": \"6536f828276092da1d61ddf0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/process",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"process"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Name",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/process/search?name=Flujo de venta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"process",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Flujo de venta"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/process",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"process"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Flujo de venta",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Board",
+			"item": [
+				{
+					"name": "Create Board",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"process\": \"65371355ad4b3722ba572bc2\",\n    \"name\": \"Segundo contacto\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/boards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"boards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Boards by process",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/boards/process/6536f828276092da1d61ddf0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"boards",
+								"process",
+								"6536f828276092da1d61ddf0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "Create Client",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ken\",\n    \"email\": \"ken@abatar.pe\",\n    \"last_name\": \"Maldonado\",\n    \"phone\": \"977186725\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/client",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Client Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Paolo\",\n    \"id\": \"65393fa7863ef6bf7388e6a7\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/client",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/client",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/client/65393fa7863ef6bf7388e6a7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"client",
+								"65393fa7863ef6bf7388e6a7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Activities",
+			"item": [
+				{
+					"name": "Get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/activities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"activities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/activities/65393fa7863ef6bf7388e6a7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"activities",
+								"65393fa7863ef6bf7388e6a7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client Business",
+			"item": [
+				{
+					"name": "Create Client Business",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Abatar\",\n    \"phone\": \"+51987654321\",\n    \"doc_number\": \"1102231322\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/client_business",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"client_business"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Client Business",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"653945f8295bd5176af19dca\",\n    \"name\": \"Abatar Peru\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/client_business",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"client_business"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Client Business",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/client_business",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"client_business"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id Client Business",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/client_business/653945f8295bd5176af19dca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"client_business",
+								"653945f8295bd5176af19dca"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "Create Tag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"compras\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tags",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"653948a2295bd5176af19de6\",\n    \"name\": \"venta al menor\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tags/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tags",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Tags",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tags",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tag By search",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tags/search/?name=ventas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tags",
+								"search",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "ventas"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cards",
+			"item": [
+				{
+					"name": "Create Card",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Pruebaa\",\n    \"client\": \"65393fa7863ef6bf7388e6a7\",\n    \"state\": \"6537101bd88362018c59c072\",\n    \"description\": \"Tarjetea de prueba\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/cards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Card",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"653959372154819b4b747585\",\n    \"state\": \"6537135ead4b3722ba572bcc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/cards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Card",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTM2ZThlM2E3YTAyNDJhYjdkNDgyNjMiLCJtYWluIjoiaXNtYWVsYWxleGFuZGVybWNfZ21haWxfY29tIiwiaWF0IjoxNjk4MDk5MTY1LCJleHAiOjE3MDA2OTExNjV9.5R-e95Qj1aylQ6n0AWqm77Z7ZQLr7g3S7Hl-ZDJH8es",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/cards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cards"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
